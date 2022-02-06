@@ -11,12 +11,17 @@ public class Main {
     private static final int FIELD_X = 10;
     private static final int FIELD_0 = 100;
     private static int[][] matrix = new int[3][3];
-    private static int moves = 0;
+    private static int moves;
     private static int ourSeed;
     private static int oppSeed;
 
     public Main() {
-
+        moves = 0;
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                matrix[i][j] = FIELD_NULL;
+            }
+        }
     }
 
     public static int checkState() {
@@ -281,9 +286,9 @@ public class Main {
         final String START = "start";
         final String EXIT = "exit";
         Scanner in = new Scanner(System.in);
-        new Main();
 
         while (true) {
+            new Main();
             System.out.print("Input command: ");
             String command = in.nextLine();
             String[] commands = command.split(" ");
